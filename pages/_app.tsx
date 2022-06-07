@@ -6,8 +6,8 @@ import { GlobalStyle, theme } from "@/style";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
