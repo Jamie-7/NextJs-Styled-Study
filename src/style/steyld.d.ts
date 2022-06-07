@@ -1,0 +1,25 @@
+import { Interpolation } from "styled-components";
+
+declare module "styled-components" {
+  export interface IColors {
+    Gray900: string;
+    Gray800: string;
+    Gray700: string;
+    Gray600: string;
+    Gray500: string;
+    Gray400: string;
+    Gray300: string;
+    Gray200: string;
+    Gray100: string;
+  }
+
+  export interface IFonts {
+    Head1: Interpolation;
+    Head2: Interpolation;
+    SubHead1: Interpolation;
+    SubHead2: Interpolation;
+    Body1: Interpolation;
+    Body2: Interpolation;
+    Body3: Interpolation;
+  }
+}
