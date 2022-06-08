@@ -1,6 +1,12 @@
 import type { NextPage } from "next";
 import styled from "styled-components";
-import { BasicSortable, Button, MainLayout } from "@/components";
+import {
+  BasicCalendar,
+  BasicRangeCalendar,
+  BasicSortable,
+  Button,
+  MainLayout,
+} from "@/components";
 import { theme } from "@/style";
 import { Input } from "@chakra-ui/react";
 
@@ -10,6 +16,8 @@ const Home: NextPage = () => {
       <Main>
         <Logo>Welcome</Logo>
         <Form>
+          <BasicCalendar />
+          <BasicRangeCalendar />
           <InputStyled type="text" name="id"></InputStyled>
           <InputStyled type="password" name="pw"></InputStyled>
           <Button />
