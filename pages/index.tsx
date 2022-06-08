@@ -15,7 +15,7 @@ const Home: NextPage = () => {
     <MainLayout title="test">
       <Main>
         <Logo>
-          Welcome {global.login ? "ha" : "ho"} {mainContext.main ? "true" : "false"}
+          Welcome {global.state.loginState ? "ha" : "ho"} {mainContext.main ? "true" : "false"}
         </Logo>
         <Form>
           <Input type="text" name="id"></Input>

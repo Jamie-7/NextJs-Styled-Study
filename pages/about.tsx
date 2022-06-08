@@ -13,11 +13,18 @@ const Home: NextPage = () => {
     <MainLayout title="test">
       <Main>
         <Logo>
-          About {global.login ? "ha" : "ho"} {mainContext.main ? "true" : "false"}
+          About {global.state.loginState ? "ha" : "ho"} {mainContext.main ? "true" : "false"}
         </Logo>
         <Link href="/">
           <a>Home</a>
         </Link>
+        <button
+          onClick={() => {
+            global.dispatch({ type: "login" });
+          }}
+        >
+          Dispatch
+        </button>
       </Main>
     </MainLayout>
   );
