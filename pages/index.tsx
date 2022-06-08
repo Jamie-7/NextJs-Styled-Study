@@ -1,5 +1,7 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 import styled from "styled-components";
+
 import { Button, MainLayout } from "@/components";
 import { theme } from "@/style";
 
@@ -13,6 +15,9 @@ const Home: NextPage = () => {
           <Input type="password" name="pw"></Input>
           <Button />
         </Form>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
       </Main>
     </MainLayout>
   );
