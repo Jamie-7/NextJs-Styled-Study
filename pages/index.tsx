@@ -1,15 +1,22 @@
+import { useContext } from "react";
 import type { NextPage } from "next";
 import Link from "next/link";
 import styled from "styled-components";
 
 import { Button, MainLayout } from "@/components";
 import { theme } from "@/style";
+import { GlobalContext, MainLayoutContext } from "@/contexts";
 
 const Home: NextPage = () => {
+  const global = useContext(GlobalContext);
+  const mainContext = useContext(MainLayoutContext);
+
   return (
     <MainLayout title="test">
       <Main>
-        <Logo>Welcome</Logo>
+        <Logo>
+          Welcome {global.login ? "ha" : "ho"} {mainContext.main ? "true" : "false"}
+        </Logo>
         <Form>
           <Input type="text" name="id"></Input>
           <Input type="password" name="pw"></Input>

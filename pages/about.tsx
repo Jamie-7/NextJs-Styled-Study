@@ -3,12 +3,18 @@ import styled from "styled-components";
 import { Button, MainLayout } from "@/components";
 import { theme } from "@/style";
 import Link from "next/link";
+import { useContext } from "react";
+import { GlobalContext, MainLayoutContext } from "@/contexts";
 
 const Home: NextPage = () => {
+  const global = useContext(GlobalContext);
+  const mainContext = useContext(MainLayoutContext);
   return (
     <MainLayout title="test">
       <Main>
-        <Logo>About</Logo>
+        <Logo>
+          About {global.login ? "ha" : "ho"} {mainContext.main ? "true" : "false"}
+        </Logo>
         <Link href="/">
           <a>Home</a>
         </Link>
