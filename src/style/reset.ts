@@ -1,7 +1,6 @@
 import { css } from "styled-components";
 
 export const reset = css`
-  @charset "utf-8";
   body,
   h1,
   h2,
