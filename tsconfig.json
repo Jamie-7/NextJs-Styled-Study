@@ -5,11 +5,7 @@
     // "incremental": true,                   /* 증분 컴파일 활성화 */
     "target": "es6" /* ECMAScript 목표 버전 설정: 'ES3'(기본), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */,
     "module": "esnext" /* 생성될 모듈 코드 설정: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ] /* 컴파일 과정에 사용될 라이브러리 파일 설정 */,
+    "lib": ["dom", "dom.iterable", "esnext"] /* 컴파일 과정에 사용될 라이브러리 파일 설정 */,
     "allowJs": true /* JavaScript 파일 컴파일 허용 */,
     // "checkJs": true,                       /* .js 파일 오류 리포트 설정 */
     "jsx": "preserve" /* 생성될 JSX 코드 설정: 'preserve', 'react-native', or 'react'. */,
@@ -48,9 +44,7 @@
     "moduleResolution": "node" /* 모듈 분석 방법 설정: 'node' (Node.js) 또는 'classic' (TypeScript pre-1.6). */,
     "baseUrl": "./" /* 절대 경로 모듈이 아닌, 모듈이 기본적으로 위치한 디렉토리 설정 (예: './modules-name') */,
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     } /* 'baseUrl'을 기준으로 상대 위치로 가져오기를 다시 매핑하는 항목 설정 */,
     // "rootDirs": [],                        /* 런타임 시 프로젝트 구조를 나타내는 로트 디렉토리 목록 */
     // "typeRoots": [],                       /* 유형 정의를 포함할 디렉토리 목록 */
@@ -74,14 +68,14 @@
     "skipLibCheck": true /* 선언 파일 유형 검사 스킵 */,
     "forceConsistentCasingInFileNames": true /* 동일한 파일에 대한 일관되지 않은 케이스 참조를 허용하지 않음 */,
     "incremental": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+        // "validate": false
+      }
+    ]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
