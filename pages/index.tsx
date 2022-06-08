@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
 import styled from "styled-components";
-import { Button, MainLayout } from "@/components";
+import { BasicSortable, Button, MainLayout } from "@/components";
 import { theme } from "@/style";
+import { Input } from "@chakra-ui/react";
 
 const Home: NextPage = () => {
   return (
@@ -9,9 +10,11 @@ const Home: NextPage = () => {
       <Main>
         <Logo>Welcome</Logo>
         <Form>
-          <Input type="text" name="id"></Input>
-          <Input type="password" name="pw"></Input>
+          <InputStyled type="text" name="id"></InputStyled>
+          <InputStyled type="password" name="pw"></InputStyled>
           <Button />
+          <Input placeholder="Basic usage" />
+          <BasicSortable />
         </Form>
       </Main>
     </MainLayout>
@@ -38,13 +41,15 @@ const Logo = styled.div`
   }
 `;
 
-const Input = styled.input`
+const InputStyled = styled.input`
   text-align: center;
   width: 200px;
   padding: none;
   margin: 10px auto;
   display: block;
   font-family: auto;
+  border: 1px solid black;
+  border-radius: 3px;
 `;
 
 export default Home;
