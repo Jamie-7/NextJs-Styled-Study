@@ -1,16 +1,29 @@
-import Document, { DocumentContext, DocumentInitialProps } from "next/document";
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from "next/document";
 import { Fragment } from "react";
 import { ServerStyleSheet } from "styled-components";
 
+import { ColorModeScript } from "@chakra-ui/react";
+import { chakraTheme } from "@/style";
+
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+  static async getInitialProps(
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps> {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
 
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -26,5 +39,20 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+
+  render() {
+    return (
+      <Html>
+        <Head />
+        <body>
+          <ColorModeScript
+            initialColorMode={chakraTheme.config.initialColorMode}
+          />
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }

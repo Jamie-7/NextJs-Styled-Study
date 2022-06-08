@@ -1,3 +1,4 @@
+import { extendTheme } from "@chakra-ui/react";
 import { css, IColors, IFonts } from "styled-components";
 
 const colors: IColors = {
@@ -61,3 +62,5 @@ export const theme = {
   colors,
   fonts,
 };
+
+export const chakraTheme = extendTheme({ colors });
