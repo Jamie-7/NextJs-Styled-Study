@@ -1,20 +1,23 @@
 import type { AppProps } from "next/app";
+import { useReducer } from "react";
 import { ThemeProvider } from "styled-components";
 
-import { GlobalStyle, theme } from "@/style";
 import { GlobalContext, globalContextInit, globalReducer } from "@/contexts";
-import { useReducer } from "react";
+import { chakraTheme, GlobalStyle, theme } from "@/style";
+import { ChakraProvider } from "@chakra-ui/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [state, dispatch] = useReducer(globalReducer, { loginState: false });
+  const [state, dispatch] = useReducer(globalReducer, globalContextInit);
   return (
     <>
       <GlobalStyle />
-      <GlobalContext.Provider value={{ state, dispatch }}>
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </GlobalContext.Provider>
+      <ThemeProvider theme={theme}>
+        <ChakraProvider theme={chakraTheme}>
+          <GlobalContext.Provider value={{ state, dispatch }}>
+            <Component {...pageProps} />
+          </GlobalContext.Provider>
+        </ChakraProvider>
+      </ThemeProvider>
     </>
   );
 }

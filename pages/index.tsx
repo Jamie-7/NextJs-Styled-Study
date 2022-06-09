@@ -3,9 +3,10 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import styled from "styled-components";
 
-import { Button, MainLayout } from "@/components";
-import { theme } from "@/style";
 import { GlobalContext, MainLayoutContext } from "@/contexts";
+import { BasicCalendar, BasicRangeCalendar, BasicSortable, Button, MainLayout } from "@/components";
+import { theme } from "@/style";
+import { Input } from "@chakra-ui/react";
 
 const Home: NextPage = () => {
   const global = useContext(GlobalContext);
@@ -18,9 +19,13 @@ const Home: NextPage = () => {
           Welcome {global.state.loginState ? "ha" : "ho"} {mainContext.main ? "true" : "false"}
         </Logo>
         <Form>
-          <Input type="text" name="id"></Input>
-          <Input type="password" name="pw"></Input>
+          <BasicCalendar />
+          <BasicRangeCalendar />
+          <InputStyled type="text" name="id"></InputStyled>
+          <InputStyled type="password" name="pw"></InputStyled>
           <Button />
+          <Input placeholder="Basic usage" />
+          <BasicSortable />
         </Form>
         <Link href="/about">
           <a>About</a>
@@ -50,13 +55,15 @@ const Logo = styled.div`
   }
 `;
 
-const Input = styled.input`
+const InputStyled = styled.input`
   text-align: center;
   width: 200px;
   padding: none;
   margin: 10px auto;
   display: block;
   font-family: auto;
+  border: 1px solid black;
+  border-radius: 3px;
 `;
 
 export default Home;
