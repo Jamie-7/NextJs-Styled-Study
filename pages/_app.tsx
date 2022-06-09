@@ -7,7 +7,6 @@ import { useReducer } from "react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [state, dispatch] = useReducer(globalReducer, { loginState: false });
-  console.log(state.loginState);
   return (
     <>
       <GlobalStyle />

@@ -8,23 +8,14 @@ interface StateType {
   loginState: boolean;
 }
 
-const ActionEnum = {
-  login: "login",
-  logout: "logout",
-} as const;
-// type StatusType = "login" | "logout"
-type ActionEnumType = typeof ActionEnum[keyof typeof ActionEnum];
-interface ActionTyep {
-  type: ActionEnumType;
-  force?: boolean;
-}
+type ActionType = { type: "login" } | { type: "logout"; results: string };
 
-export const globalReducer = (state: StateType, action: ActionTyep) => {
+export const globalReducer = (state: StateType, action: ActionType): StateType => {
   switch (action.type) {
     case "login":
-      return { loginState: !state.loginState };
+      return { loginState: true };
     case "logout":
-      return { loginState: !state.loginState };
+      return { loginState: false };
     default:
       throw new Error();
   }
@@ -32,7 +23,7 @@ export const globalReducer = (state: StateType, action: ActionTyep) => {
 
 export const GlobalContext = createContext<{
   state: StateType;
-  dispatch: React.Dispatch<ActionTyep>;
+  dispatch: React.Dispatch<ActionType>;
 }>({
   state: globalContextInit,
   dispatch: () => undefined,
