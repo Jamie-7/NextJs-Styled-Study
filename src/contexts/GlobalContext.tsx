@@ -8,7 +8,17 @@ interface StateType {
   loginState: boolean;
 }
 
-type ActionType = { type: "login" } | { type: "logout"; results: string };
+const ActionT = {
+  login: "login",
+  logout: "logout",
+} as const;
+
+type ActionT = typeof ActionT[keyof typeof ActionT];
+
+interface ActionType {
+  type: ActionT;
+  result?: string;
+}
 
 export const globalReducer = (state: StateType, action: ActionType): StateType => {
   switch (action.type) {
